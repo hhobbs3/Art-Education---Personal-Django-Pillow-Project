@@ -1,0 +1,144 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+
+<div class="container top">
+        <div class="row">
+            <div class="col top">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input class="btn btn-primary col top" type="file" name="document">
+                    <button class="btn btn-primary col top" type="submit">Upload file</button>
+                </form>
+            </div>
+
+            {% if url %}
+
+            <div class="col top">
+                <form action="/undo" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Undo</button>
+                </form>
+            </div>
+            <div class="col top">
+                <form action="/redo" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Redo</button>
+                </form>
+            </div>
+            <div class="col top">
+                <form action="/save" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container middle">
+        <div class="row">
+            <div class="col middle">
+                <p class="centerIm">Uploaded file: <a href="{{ url }}">{{ url}}</a></p>
+                <img class="centerIm" style="max-width:50%; height:auto;" src="{{ url }}" alt="uploaded image">
+            </div>
+        </div>
+    </div>
+
+    <div class="container bottom">
+        <div class="row">
+            <div class="col bottom">
+                <form action="/detail" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Detail</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/sharpen" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Sharpen</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/smoothMore" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Smooth</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/blur" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Blur</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/edgeEnhanceMore" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Edge Enhance</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/contour" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Contour</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/findEdges" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Find Edges</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/emboss" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Emboss</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/detectRed" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Detect Red</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/detectGreen" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Detect Green</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/detectBlue" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Detect Blue</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/composition" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Composition</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/lightConcentration" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Light Concentration</button>
+                </form>
+            </div>
+            <div class="col bottom">
+                <form action="/crispyWhite" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Crispy White</button>
+                </form>
+            </div> 
+            <div class="col bottom">
+                <form action="/blackAndWhite" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="document" value="{{ url }}">Old TV</button>
+                </form>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+     
+
+{% endblock %}
